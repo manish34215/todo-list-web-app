@@ -1,44 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List App</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Luma Market — a polished front-end shopping experience.">
+  <title>Luma Market | Everyday essentials, beautifully chosen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="todo-wrapper">
-            <h1>My Todo List</h1>
-            
-            <div class="input-section">
-                <input 
-                    type="text" 
-                    id="todoInput" 
-                    placeholder="Add a new task..." 
-                    autocomplete="off"
-                >
-                <button id="addBtn" class="add-btn">Add</button>
-            </div>
-
-            <div class="filter-section">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="active">Active</button>
-                <button class="filter-btn" data-filter="completed">Completed</button>
-            </div>
-
-            <ul id="todoList" class="todo-list">
-                <!-- Todos will be added here dynamically -->
-            </ul>
-
-            <div class="todo-stats">
-                <span id="todoCount">0</span> tasks remaining
-            </div>
-
-            <button id="clearBtn" class="clear-btn">Clear Completed</button>
-        </div>
+  <div class="announcement">Free shipping on orders over $75 <span>✦</span> Easy returns within 30 days</div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Luma Market home"><span class="brand-mark">L</span><span>Luma<span class="brand-dot">.</span></span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#shop">Shop</a><a href="#collections">Collections</a><a href="#story">Our story</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="searchToggle" aria-label="Open search">⌕</button>
+      <button class="icon-button cart-button" id="cartToggle" aria-label="Open shopping bag">♧<span id="cartCount">0</span></button>
+      <button class="menu-button" id="menuToggle" aria-label="Open menu">☰</button>
     </div>
+  </header>
 
-    <script src="script.js"></script>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">A little more everyday</p>
+        <h1>Beautiful things<br><em>for living well.</em></h1>
+        <p class="hero-text">Thoughtfully designed essentials that make daily rituals feel a little more special.</p>
+        <a class="button button-dark" href="#shop">Shop new arrivals <span>→</span></a>
+      </div>
+      <div class="hero-art" aria-label="Decorative still life illustration">
+        <div class="sun"></div><div class="hero-arch"></div><div class="hero-vase vase-one"></div><div class="hero-vase vase-two"></div><div class="hero-leaf leaf-one"></div><div class="hero-leaf leaf-two"></div>
+        <span class="art-caption">Objects with intention</span>
+      </div>
+    </section>
+
+    <section class="category-strip" id="collections">
+      <a href="#shop">Home & living <span>↗</span></a><a href="#shop">Wearables <span>↗</span></a><a href="#shop">Self care <span>↗</span></a><a href="#shop">Gifts <span>↗</span></a>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading"><div><p class="eyebrow">Curated for you</p><h2>New arrivals</h2></div><div class="shop-controls"><label class="search-field"><span>⌕</span><input id="searchInput" type="search" placeholder="Search products..." autocomplete="off"></label><select id="categoryFilter" aria-label="Filter by category"><option value="all">All categories</option><option value="home">Home & living</option><option value="wearables">Wearables</option><option value="self-care">Self care</option></select></div></div>
+      <div class="product-grid" id="productGrid"></div><p class="no-results" id="noResults" hidden>No products match your search. Try another phrase.</p>
+    </section>
+
+    <section class="story-section" id="story"><div class="story-image"><span>Made for<br><em>the everyday.</em></span></div><div class="story-copy"><p class="eyebrow">The Luma edit</p><h2>Good design is<br><em>felt, not forced.</em></h2><p>We look for pieces that earn their place in your home and your life — made with honest materials, quiet details, and a whole lot of care.</p><a class="text-link" href="#shop">Read our story <span>→</span></a></div></section>
+  </main>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true"><div class="drawer-header"><h2>Your bag</h2><button id="closeCart" aria-label="Close shopping bag">×</button></div><div id="cartItems" class="cart-items"></div><div class="cart-footer"><div><span>Subtotal</span><strong id="cartTotal">$0.00</strong></div><button class="button button-dark" id="checkoutButton">Checkout <span>→</span></button></div></aside><div class="overlay" id="overlay"></div>
+  <footer><span>© 2024 Luma Market</span><span>Made for slow, considered living.</span></footer>
+  <script src="script.js"></script>
 </body>
 </html>
